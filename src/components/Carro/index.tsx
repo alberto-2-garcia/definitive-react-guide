@@ -1,13 +1,17 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import BubbleAlert from '../BubbleAlert';
 import './styles.scss';
 
 const Carro: FC = () => {
+  const [value, setValue] = useState(18)
+
   return (
     <div>
-      <span className='bubble'>
-        <BubbleAlert />
-      </span>
+      {!!value && 
+        <span className='bubble'>
+          <BubbleAlert value={value} />
+        </span>
+      }
       <button className='carro'>
         Carro
       </button>
