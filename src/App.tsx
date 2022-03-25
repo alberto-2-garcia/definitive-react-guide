@@ -1,10 +1,13 @@
 import { FC } from 'react'
+import Layout from './components/Layout';
 import ShoppingCart from './containers/ShoppingCart';
 
 const App: FC = () => {
   return (
     <div>
-      <ShoppingCart />
+      <Layout>
+        <ShoppingCart />
+      </Layout>
     </div>
   )
 }
