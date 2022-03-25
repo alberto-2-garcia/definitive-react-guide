@@ -1,4 +1,4 @@
-import { ProductoType } from "../../containers/ShoppingCart";
+import { ProductoType } from "../../containers/ShoppingCart/interface";
 
 export interface ProductoProps {
   producto: ProductoType;

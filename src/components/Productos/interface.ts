@@ -1,6 +1,6 @@
-import { ProductoType } from '../../containers/ShoppingCart';
+import { ProductoType } from '../../containers/ShoppingCart/interface';
 
 export interface ProductosProps {
-  agregarAlCarro(): void;
+  agregarAlCarro(producto: ProductoType): void;
   productos: ProductoType[];
 }
