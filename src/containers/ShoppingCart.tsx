@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import Layout from '../components/Layout';
+import Navbar from '../components/Navbar';
 import Productos from '../components/Productos'
+import Title from '../components/Title';
 
 export type ProductoType = {
   nombre: string;
@@ -16,10 +19,14 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <Productos 
-        agregarAlCarro={() => console.log('wiii')}
-        productos={productos}
-      />
+      <Navbar />
+      <Layout>
+        <Title> Tienda </Title>
+        <Productos 
+          agregarAlCarro={() => console.log('wiii')}
+          productos={productos}
+        />
+      </Layout>
     </div>
   )
 }

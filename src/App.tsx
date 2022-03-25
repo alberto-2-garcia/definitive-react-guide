@@ -7,11 +7,7 @@ import ShoppingCart from './containers/ShoppingCart';
 const App: FC = () => {
   return (
     <div>
-      <Navbar />
-      <Layout>
-        <Title> Tienda </Title>
-        <ShoppingCart />
-      </Layout>
+      <ShoppingCart />
     </div>
   )
 }
