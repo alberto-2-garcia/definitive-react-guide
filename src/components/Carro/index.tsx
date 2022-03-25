@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import BubbleAlert from '../BubbleAlert';
+import DetallesCarro from '../DetallesCarro';
 import { CarroProps } from './interface';
 import './styles.scss';
 
@@ -16,6 +17,7 @@ const Carro: FC<CarroProps> = ({ carro }) => {
       <button className='carro'>
         Carro
       </button>
+      <DetallesCarro carro={carro} />
     </div>
   )
 }
