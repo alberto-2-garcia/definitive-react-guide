@@ -2,11 +2,12 @@ import { FC } from 'react';
 import './styles.scss';
 import Producto from './../Producto';
 import { ProductosProps } from './interface';
+import Title from '../Title';
 
 const Productos: FC<ProductosProps> = ({ productos, agregarAlCarro }) => {
   return (
     <div>
-      <h1>Productos</h1>
+      <Title>Productos</Title>
       <div className='lista-productos'>
         {productos.map((producto) => (
           <Producto
