@@ -23,7 +23,7 @@ const Carro: FC<CarroProps> = ({ carro }) => {
       <button className='carro' onClick={() => mostrarCarro()}>
         Carro
       </button>
-      {mostrarDetallesCarro && <DetallesCarro carro={carro} />}
+      {mostrarDetallesCarro && !!cantidad && <DetallesCarro carro={carro} />}
     </div>
   )
 }
