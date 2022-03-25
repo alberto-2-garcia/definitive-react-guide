@@ -1,0 +1,20 @@
+$carro-color: #359A2C;
+
+.carro {
+  background-color: $carro-color;
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color: $carro-color, $amount: 10);
+  }
+}
+
+.bubble {
+  position: relative;
+  left: 12px;
+  top: 20px;
+}

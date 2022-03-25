@@ -4,7 +4,7 @@ import { ButtonProps } from './interface';
 
 const Button: FC<ButtonProps> = ({ onClick, children }) => {
   return (
-    <button onClick={() => onClick()}> {children} </button>
+    <button className='btn' onClick={() => onClick()}> {children} </button>
   )
 }
 
