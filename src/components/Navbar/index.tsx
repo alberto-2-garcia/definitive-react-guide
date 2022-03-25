@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import Carro from '../Carro';
 import Logo from '../Logo';
+import { NavbarProps } from './interface';
 import './styles.scss';
 
-const Navbar: FC = () => {
+const Navbar: FC<NavbarProps> = ({ carro }) => {
   return (
     <nav className='navbar'>
       <Logo />
-      <Carro />
+      <Carro carro={carro}/>
     </nav>
   )
 }

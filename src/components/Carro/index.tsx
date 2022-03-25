@@ -1,15 +1,16 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import BubbleAlert from '../BubbleAlert';
+import { CarroProps } from './interface';
 import './styles.scss';
 
-const Carro: FC = () => {
-  const [value, setValue] = useState(18)
+const Carro: FC<CarroProps> = ({ carro }) => {
+  const cantidad = carro.reduce((acc, el) => acc + el.cantidad, 0);
 
   return (
     <div>
-      {!!value && 
+      {!!cantidad && 
         <span className='bubble'>
-          <BubbleAlert value={value} />
+          <BubbleAlert value={cantidad} />
         </span>
       }
       <button className='carro'>

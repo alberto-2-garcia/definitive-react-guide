@@ -37,7 +37,7 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar carro={carro} />
       <Layout>
         <Title> Tienda </Title>
         <Productos 
