@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import Logo from '../Logo';
 import './styles.scss';
 
 const Navbar: FC = () => {
   return (
     <nav className='navbar'>
-      <p>Logo</p>
+      <Logo />
       <p>Carro</p>
     </nav>
   )
