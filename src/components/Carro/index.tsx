@@ -5,7 +5,13 @@ import { CarroProps } from './interface';
 import './styles.scss';
 
 const Carro: FC<CarroProps> = ({ carro }) => {
+  const [mostrarDetallesCarro, setMostrarDetallesCarro] = useState(false)
+
   const cantidad = carro.reduce((acc, el) => acc + el.cantidad, 0);
+
+  const mostrarCarro = () => {
+    setMostrarDetallesCarro(valor => !valor);
+  }
 
   return (
     <div>
@@ -14,10 +20,10 @@ const Carro: FC<CarroProps> = ({ carro }) => {
           <BubbleAlert value={cantidad} />
         </span>
       }
-      <button className='carro'>
+      <button className='carro' onClick={() => mostrarCarro()}>
         Carro
       </button>
-      <DetallesCarro carro={carro} />
+      {mostrarDetallesCarro && <DetallesCarro carro={carro} />}
     </div>
   )
 }
