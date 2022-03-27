@@ -1,6 +1,6 @@
 import { FC, FormEvent, useRef} from 'react'
 
-const Form: FC = () => {
+const UncontrolledForm: FC = () => {
   // const submit = (event: FormEvent<HTMLFormElement>) => {
   //   event.preventDefault();
   //   console.log(Object.fromEntries(Array.from(new FormData(event.currentTarget))));
@@ -38,4 +38,4 @@ const Form: FC = () => {
   )
 }
 
-export default Form
+export default UncontrolledForm;
