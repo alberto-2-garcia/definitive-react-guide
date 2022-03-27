@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 // import './App.css'
-import Form from './components/Form'
+import UncontrolledForm from './components/UncontrolledForm'
 
 function App() {
   return (
-    <Form />
+    <UncontrolledForm />
   )
 }
 
