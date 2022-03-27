@@ -4,19 +4,20 @@ const ControlledForm = () => {
   const [formValues, setFormValues] = useState({
     input: '',
     area: '',
-    select: ''
+    select: '',
+    check: false
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
+    const { name, value, type } = e.target
 
     setFormValues({
       ...formValues,
-      [name]: value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     });
   }
 
-  const { input, area, select } = formValues;
+  const { input, area, select, check } = formValues;
 
   return (
     <div>
@@ -27,6 +28,7 @@ const ControlledForm = () => {
         <option value='hola'>hola</option>
         <option value='adios'>adios</option>
       </select>
+      <input type='checkbox' onChange={handleChange} name='check' checked={check} />
     </div>
   )
 }
