@@ -1,15 +1,16 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FormEventHandler, useState } from 'react'
 
 const ControlledForm = () => {
   const [formValues, setFormValues] = useState({
     input: '',
     area: '',
     select: '',
-    check: false
+    check: false,
+    estado: 'adios'
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target
+    const { name, value, type } = e.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 
     setFormValues({
       ...formValues,
@@ -17,7 +18,7 @@ const ControlledForm = () => {
     });
   }
 
-  const { input, area, select, check } = formValues;
+  const { input, area, select, check, estado } = formValues;
 
   return (
     <div>
@@ -29,6 +30,10 @@ const ControlledForm = () => {
         <option value='adios'>adios</option>
       </select>
       <input type='checkbox' onChange={handleChange} name='check' checked={check} />
+      <div>
+        <input onChange={handleChange} checked={estado == 'hola'} type='radio' value='hola' name='estado' /> hola
+        <input onChange={handleChange} checked={estado == 'adios'} type='radio' value='adios' name='estado' /> adios
+      </div>
     </div>
   )
 }
