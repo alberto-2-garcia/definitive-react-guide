@@ -12,19 +12,12 @@ const Content = styled.div`
 
 interface ButtonProps {
   primary?: boolean;
-  fontSize?: any;
-  color?: string;
-  className?: string;
-}
-export const ButtonComponent: FC <ButtonProps> = ({children, ...rest }) => {
-  return (
-    <button {...rest}>{children}</button>
-  )
 }
 
-const Button = styled(ButtonComponent)`
+const Button = styled.button<ButtonProps>`
   background-color: ${props => props.primary ? 'red' : 'white'};
 `;
+
 
 function App() {
   return (
