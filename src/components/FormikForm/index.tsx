@@ -1,4 +1,4 @@
-import { Formik, validateYupSchema } from 'formik'
+import { Formik, Form, Field, ErrorMessage, FormikErrors } from 'formik'
 import { FC } from 'react'
 import Input from '../Input';
 
@@ -15,8 +15,10 @@ const initialValues: FormValues = {
 }
 
 const validate = (values: FormValues) => {
-  const errors: FormValues = { ...initialValues };
-  errors.name = 'Requerido abuelo';
+  const errors: FormikErrors<FormValues> = {};
+  // errors.name = 'Requerido abuelo';
+  // errors.lastname = 'Requerido abuela';
+  // errors.email = 'Requerido aaaa';
   return errors;
 }
 
@@ -29,23 +31,14 @@ const FormikForm: FC = () => {
     <Formik
       initialValues={initialValues}
       validate={validate}
-      onSubmit={onSubmit}
+      onSubmit={values => console.log(values)}
     >
-      {({ handleSubmit, errors, touched, getFieldProps }) => {
-        const { name: errorName, lastname: errorLastname, email: errorEmail } = errors;
-        const { name: nameTouched, lastname: lastnameTouched, email: emailTouched } = touched;
-
-        return (
-          <form onSubmit={handleSubmit}>
-            <Input type='text' label='Nombre' {...getFieldProps('name')}/>
-            {nameTouched && errorName && <p>{errorName}</p>}
-            <Input type='text' label='Apellido' {...getFieldProps('lastname')}/>
-            <Input type='email' label='Correo' {...getFieldProps('email')}/>
-            <input type='submit' value='Enviar'/>
-          </form>
-        )
-      }}
-
+      <Form>
+        <Input label='Nombre' name='name' type='text' />
+        <Input label='Apellido' name='lastname' type='text' />
+        <Input label='Correo' name='email' type='email' />
+        <button type='submit'>Enviar</button>
+      </Form>
     </Formik>
   )
 }
