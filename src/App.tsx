@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-// import './App.css'
-import UncontrolledForm from './components/UncontrolledForm'
-import ControlledForm from './components/ControlledForm'
+import styled from 'styled-components';
+
+const P = styled.p`
+  font-size: 24px;
+  color: red;
+`;
 
 function App() {
   return (
-    <ControlledForm />
+    <div>
+      <P>Hola</P>
+    </div>
   )
 }
 
