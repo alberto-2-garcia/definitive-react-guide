@@ -4,4 +4,5 @@ export interface InputProps {
   label: string;
   name: string;
   type?: string;
+  as?: string;
 }

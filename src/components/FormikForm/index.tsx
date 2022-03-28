@@ -35,8 +35,12 @@ const FormikForm: FC = () => {
     >
       <Form>
         <Input label='Nombre' name='name' type='text' />
-        <Input label='Apellido' name='lastname' type='text' />
-        <Input label='Correo' name='email' type='email' />
+        <Input label='Apellido' name='lastname' as='textarea' />
+        <Input label='Correo' name='email' as='select'>
+          <option value=''>Selecciona</option>
+          <option value='hola'>Hola</option>
+          <option value='adios'>adios</option>
+        </Input>
         <button type='submit'>Enviar</button>
       </Form>
     </Formik>
