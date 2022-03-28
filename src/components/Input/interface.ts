@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, FocusEvent } from "react";
 
 export interface InputProps {
   label: string;
@@ -6,4 +6,5 @@ export interface InputProps {
   value: string;
   name: string;
   type?: string;
+  onBlur(e: FocusEvent<any, Element>): void;
 }
