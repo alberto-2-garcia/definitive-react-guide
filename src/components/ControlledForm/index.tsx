@@ -20,6 +20,8 @@ const ControlledForm = () => {
 
   const { input, area, select, check, estado } = formValues;
 
+  console.log();
+
   return (
     <div>
       <input type='text' name='input' value={input} onChange={handleChange} />
