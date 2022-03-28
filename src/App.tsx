@@ -4,11 +4,12 @@ import logo from './logo.svg'
 import UncontrolledForm from './components/UncontrolledForm'
 import ControlledForm from './components/ControlledForm'
 import ExampleForm from './components/ExampleForm'
+import FormikForm from './components/FormikForm'
 
 function App() {
 
   return (
-    <ExampleForm />
+    <FormikForm />
   )
 }
 
