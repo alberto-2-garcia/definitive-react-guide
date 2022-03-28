@@ -16,14 +16,27 @@ interface ButtonProps {
 
 const Button = styled.button<ButtonProps>`
   background-color: ${props => props.primary ? 'red' : 'white'};
+  color: ${props => !props.primary ? 'red' : 'white'};
+  padding: 10px 15px;
+  border: solid 2px red;
+  border-radius: 4px;
+
+  :hover {
+    background-color: lighten(${props => props.primary ? 'red' : 'white'});
+  }
 `;
 
+const BlockButton = styled(Button)`
+  width: 100%;
+  font-size: 24px;
+`
 
 function App() {
   return (
     <Content>
       <P>Hola</P>
-      <Button primary={false}>Buenas</Button>
+      <Button primary>Buenas</Button>
+      <BlockButton>Grande</BlockButton>
     </Content>
   )
 }
