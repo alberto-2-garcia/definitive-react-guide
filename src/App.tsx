@@ -5,11 +5,15 @@ const P = styled.p`
   color: red;
 `;
 
+const Content = styled.div`
+  padding: 20px 25px;
+`;
+
 function App() {
   return (
-    <div>
+    <Content>
       <P>Hola</P>
-    </div>
+    </Content>
   )
 }
 
