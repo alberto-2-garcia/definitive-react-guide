@@ -29,6 +29,19 @@ const Button = styled.button<ButtonProps>`
 const BlockButton = styled(Button)`
   width: 100%;
   font-size: 24px;
+`;
+
+interface LinkProps {
+  className: string;
+  href: string;
+}
+
+const Link: FC<LinkProps> = ({ className, ...props }) => {
+  return <a className={className} {...props} />
+}
+
+const StyledLink = styled(Link)`
+  color: blue;
 `
 
 function App() {
@@ -37,6 +50,8 @@ function App() {
       <P>Hola</P>
       <Button primary>Buenas</Button>
       <BlockButton as="a" href="#">Grande</BlockButton>
+      <Link className='hola' href='#'>Buenas</Link>
+      <StyledLink className='hola' href='#'>Buenas</StyledLink>
     </Content>
   )
 }
