@@ -21,8 +21,9 @@ const Button = styled.button<ButtonProps>`
   border: solid 2px red;
   border-radius: 4px;
 
-  :hover {
-    background-color: lighten(${props => props.primary ? 'red' : 'white'});
+  &:hover {
+    background-color: pink;
+    color: red;
   }
 `;
 
