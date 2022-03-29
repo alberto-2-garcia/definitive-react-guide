@@ -43,7 +43,23 @@ const Link: FC<LinkProps> = ({ className, ...props }) => {
 
 const StyledLink = styled(Link)`
   color: blue;
+`;
+
+const Input = styled.input.attrs(props => ({
+  type: 'text',
+  color: props.color || 'black',
+  ...props
+}))
 `
+  font-size: 20px;
+  border: 1px solid red;
+  color: ${props => props.color};
+`;
+
+const Password = styled(Input).attrs((props) => ({
+  type: 'password'
+}))
+``;
 
 function App() {
   return (
@@ -53,6 +69,8 @@ function App() {
       <BlockButton as="a" href="#">Grande</BlockButton>
       <Link className='hola' href='#'>Buenas</Link>
       <StyledLink className='hola' href='#'>Buenas</StyledLink>
+      <Input color='blue' />
+      <Password />
     </Content>
   )
 }
