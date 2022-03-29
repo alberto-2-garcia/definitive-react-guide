@@ -36,7 +36,7 @@ function App() {
     <Content>
       <P>Hola</P>
       <Button primary>Buenas</Button>
-      <BlockButton>Grande</BlockButton>
+      <BlockButton as="a" href="#">Grande</BlockButton>
     </Content>
   )
 }
