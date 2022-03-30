@@ -11,7 +11,9 @@ const Home: NextPage = () => {
       <Link href='/proyectos'>Proyectos</Link>
       <Link href='/pokemones'>Pokemones</Link>
       <Image src='/octoexpansion.jpg' width={200} height={100} />
+      {/* <Image src='/octoexpansion.jpg' width={200} height={100} /> */}
       <Image src={Octoexpansion} width={200} height={100} />
+      {/* <Image src={Octoexpansion} width={200} height={100} /> */}
     </div>
   )
 }
