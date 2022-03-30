@@ -7,6 +7,7 @@ const Home: NextPage = () => {
       <h1>Pagina de Next JS</h1>
       <Link href='/about'>About</Link>
       <Link href='/proyectos'>Proyectos</Link>
+      <Link href='/pokemones'>Pokemones</Link>
     </div>
   )
 }
