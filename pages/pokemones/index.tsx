@@ -14,6 +14,7 @@ interface PokemonAPIResponse {
 
 const Pokemones: NextPage = ({ pokemones }: InferGetStaticPropsType<typeof getStaticProps>) => {
   // console.log(pokemones)
+  console.log(pokemones.results)
   return (
     <div>
       <h1>Pokemones</h1>
@@ -21,7 +22,7 @@ const Pokemones: NextPage = ({ pokemones }: InferGetStaticPropsType<typeof getSt
       <ul>
         {(pokemones as PokemonAPIResponse).results.map(({ name, url }) => (
           <li key={name}>
-            <Link href={`/pokemones/${name}`}>{name}</Link>
+            <Link href={`/pokemones/${url.split('/')[6]}`}>{name}</Link>
           </li>
         ))}
       </ul>
