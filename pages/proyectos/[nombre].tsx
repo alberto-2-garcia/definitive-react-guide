@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import useIsMounted from "../../hooks/useIsMounted";
+import { useRouter } from "next/router";
 
 const Proyecto: NextPage = () => {
-  const [loaded, setLoaded] = useState(false);
+  const isMounted = useIsMounted();
   const router = useRouter();
 
-  useEffect(() => {
-    setLoaded(router.isReady);
-  }, [router.isReady]);
-
-  if (!loaded) return null;
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div>
