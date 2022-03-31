@@ -1,20 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import Pokemones, { PokemonAPIResponse, PokemonType, PokemonsProps } from '../pages';
+import Pokemones, { PokemonAPIResponse, PokemonType, PokemonsProps, getStaticProps } from '../pages';
 
 const pokemon: PokemonType = {
   name: 'pikachu',
   url: '1'
 }
 
-const pokemones: PokemonAPIResponse = {
-  results: [{...pokemon}],
-  count: 1,
-  next: null,
-  previous: null
-}
-
 const props: PokemonsProps = {
-  pokemones
+  pokemones: [pokemon]
 }
 
 describe('Index', () => {
@@ -33,8 +26,20 @@ describe('Index', () => {
   })
 
   describe('getStaticProps', () => {
-    it('suma 2 + 2', () => {
-      expect(2 + 2).toBe(4);
+    it('regresa pokemones', async () => {
+      global.fetch = jest.fn()
+        .mockImplementation(url => {
+          expect(url).toEqual('https://pokeapi.co/api/v2/pokemon?limit=151');
+          return new Promise(resolve => resolve({
+            json: () => Promise.resolve({
+              results: 'lista de pokemones'
+            })
+          }))
+        });
+  
+      const { props } = await getStaticProps();
+  
+      expect(props.pokemones).toEqual('lista de pokemones');
     })
   })
 });

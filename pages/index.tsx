@@ -12,9 +12,12 @@ export interface PokemonAPIResponse {
   previous: string | null;
 }
 
-export type PokemonsProps = InferGetStaticPropsType<typeof getStaticProps>;
+// export type PokemonsProps = InferGetStaticPropsType<typeof getStaticProps>;
+export type PokemonsProps = {
+  pokemones: PokemonType[];
+};
 
-const Pokemones: NextPage = (props: PokemonsProps) => {
+const Pokemones: NextPage<PokemonsProps> = (props: PokemonsProps) => {
   const { pokemones } = props;
   
   // console.log(pokemones)
@@ -23,7 +26,7 @@ const Pokemones: NextPage = (props: PokemonsProps) => {
     <div>
       <h1>Pokemones</h1>
       <ul>
-        {(pokemones as PokemonAPIResponse).results.map(({ name, url }) => (
+        {pokemones.map(({ name, url }) => (
           <li key={name}>
             <Link href={`/pokemones/${url.split('/').filter(x => x).pop()}`}>{name}</Link>
           </li>
@@ -33,13 +36,13 @@ const Pokemones: NextPage = (props: PokemonsProps) => {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps = async () => {
   const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
   const data = await response.json() as PokemonAPIResponse;
 
   return {
     props: {
-      pokemones: data
+      pokemones: data.results
     }
   }
 }
