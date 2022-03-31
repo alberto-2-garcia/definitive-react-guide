@@ -25,7 +25,7 @@ const Pokemones: NextPage = (props: PokemonsProps) => {
       <ul>
         {(pokemones as PokemonAPIResponse).results.map(({ name, url }) => (
           <li key={name}>
-            <Link href={`/pokemones/${url.split('/')[6]}`}>{name}</Link>
+            <Link href={`/pokemones/${url.split('/').filter(x => x).pop()}`}>{name}</Link>
           </li>
         ))}
       </ul>

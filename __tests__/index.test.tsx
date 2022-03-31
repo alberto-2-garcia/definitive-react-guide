@@ -3,7 +3,7 @@ import Pokemones, { PokemonAPIResponse, PokemonType, PokemonsProps } from '../pa
 
 const pokemon: PokemonType = {
   name: 'pikachu',
-  url: 'link'
+  url: '1'
 }
 
 const pokemones: PokemonAPIResponse = {
@@ -23,8 +23,12 @@ describe('Index', () => {
       const { getByText } = render(<Pokemones {...props}/>)
 
       const title = getByText('Pokemones');
-
       expect(title).toBeInTheDocument();
+
+      const pikachu = getByText(pokemon.name);
+      const url = pikachu.getAttribute('href')
+      expect(pikachu).toBeInTheDocument();
+      expect(url).toEqual('/pokemones/1')
     })
   })
 
