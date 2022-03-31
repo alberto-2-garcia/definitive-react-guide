@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import Pokemones, { PokemonAPIResponse, PokemonType, PokemonsProps, getStaticProps } from '../pages';
+import Pokemones, { getStaticProps } from '../pages';
+import { PokemonType, PokemonsProps } from '../types/pokemon';
 
 const pokemon: PokemonType = {
   name: 'pikachu',

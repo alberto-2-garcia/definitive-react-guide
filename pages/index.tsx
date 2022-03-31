@@ -1,21 +1,6 @@
-import type { GetStaticProps, NextPage, InferGetStaticPropsType} from 'next';
+import type { NextPage } from 'next';
 import Link from 'next/link';
-
-export interface PokemonType {
-  name: string;
-  url: string;
-}
-export interface PokemonAPIResponse {
-  results: PokemonType[];
-  count: number;
-  next: string | null;
-  previous: string | null;
-}
-
-// export type PokemonsProps = InferGetStaticPropsType<typeof getStaticProps>;
-export type PokemonsProps = {
-  pokemones: PokemonType[];
-};
+import { PokemonsProps, PokemonAPIResponse } from './../types/pokemon';
 
 const Pokemones: NextPage<PokemonsProps> = (props: PokemonsProps) => {
   const { pokemones } = props;
