@@ -1,18 +1,22 @@
 import type { GetStaticProps, NextPage, InferGetStaticPropsType} from 'next';
 import Link from 'next/link';
 
-interface PokemonType {
+export interface PokemonType {
   name: string;
   url: string;
 }
-interface PokemonAPIResponse {
+export interface PokemonAPIResponse {
   results: PokemonType[];
   count: number;
   next: string | null;
   previous: string | null;
 }
 
-const Pokemones: NextPage = ({ pokemones }: InferGetStaticPropsType<typeof getStaticProps>) => {
+export type PokemonsProps = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Pokemones: NextPage = (props: PokemonsProps) => {
+  const { pokemones } = props;
+  
   // console.log(pokemones)
   // console.log(pokemones.results)
   return (
